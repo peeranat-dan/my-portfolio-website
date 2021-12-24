@@ -7,14 +7,14 @@
         <div class="text-sm-h3 font-weight-medium">
           Peeranat Danaidusadeekul.
         </div>
-        <div class="text--secondary">
+        <div class="text--secondary mt-6">
           I'm a fourth year <strong>Industrial Engineering student</strong> at
           Chulalongkorn University who currently seeking for more challenging
           job opportunities in fields of
           <strong>front-end and back-end developers</strong> front-end and
           back-end developers.
         </div>
-        <v-btn outlined class="mt-5" color="hi">
+        <v-btn outlined class="mt-5" color="hi" :href="resumeUrl">
           <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume!
         </v-btn>
         <div class="text-sm-h5 mt-10 mb-4">Hard Skills</div>
@@ -60,6 +60,8 @@ export default {
         "Language (Thai: Native, English: Fluent)",
       ],
       hardSkills: ["Collaborative", "Communication", "Team working"],
+      resumeUrl:
+        "https://drive.google.com/file/d/1zaljVBAhkWv1Usiyb8wQop_dwjJshDST/view?usp=sharing",
     };
   },
   computed: {

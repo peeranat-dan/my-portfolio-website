@@ -11,20 +11,30 @@
         v-for="project in projects"
         :key="project.name"
       >
-        <v-card :color="project.color" :light="!project.dark">
-          <v-card-title>
-            {{ project.name }}
-          </v-card-title>
-          <v-card-text>
-            {{ project.description }}
-          </v-card-text>
-          <v-card-text>
-            Visit <v-icon class="mx-1 mb-1">{{ project.icon }}</v-icon>
-            {{ project.channel }}
-          </v-card-text>
-        </v-card>
+        <v-hover v-slot="{ hover }" open-delay="200">
+          <v-card
+            :elevation="hover ? 16 : 0"
+            :color="project.color"
+            height="200"
+            :light="!project.dark"
+          >
+            <v-card-title>
+              {{ project.name }}
+            </v-card-title>
+            <v-card-text>
+              {{ project.description }}
+            </v-card-text>
+            <a :href="project.url">
+              <v-card-text>
+                Visit <v-icon class="mx-1 mb-1">{{ project.icon }}</v-icon>
+                {{ project.channel }}
+              </v-card-text></a
+            >
+          </v-card>
+        </v-hover>
       </v-col>
     </v-row>
+    <v-divider class="mt-8" />
   </v-container>
 </template>
 
@@ -51,7 +61,7 @@ export default {
           icon: "mdi-github",
           url: "fakeUrl",
           description:
-            "Designed and developed a 500,000 THB worth telemedicine front-end and back-end side for True Digital Health.",
+            "Built own webpage to show my front-end developer skill and my personality.",
         },
       ],
     };
@@ -63,3 +73,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+a {
+  text-decoration: none;
+  outline: none;
+  color: white !important;
+}
+</style>
