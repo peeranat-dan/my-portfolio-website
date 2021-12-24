@@ -13,7 +13,7 @@
         :href="link.href"
         >{{ link.name }}</a
       >
-      <v-btn outlined class="mx-2" color="hi" :href="resumeUrl">
+      <v-btn outlined class="mx-2 text-lowercase" color="hi" :href="resumeUrl">
         <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume!
       </v-btn>
     </div>
