@@ -1,0 +1,66 @@
+<template>
+  <v-container>
+    <div class="text-sm-h5 text--secondary mb-12">Contact me</div>
+    <v-row justify="center">
+      <v-col cols="8">
+        <v-form @submit.prevent="submitData" ref="form">
+          <v-textarea
+            filled
+            color="hi"
+            v-model="emailMsg"
+            label="Leave your message here"
+            :rules="[requiredRule]"
+          ></v-textarea>
+          <v-text-field
+            filled
+            color="hi"
+            label="Your email here"
+            v-model="emailAns"
+            :rules="[requiredRule]"
+          />
+          <v-btn block color="#51b081" type="submit"
+            ><v-icon class="mr-2">mdi-email</v-icon>Hit my inbox</v-btn
+          >
+        </v-form>
+      </v-col>
+      <v-col>
+        <div class="my-3" v-for="social in sns" :key="social.name">
+          <v-btn block outlined :color="social.color"
+            ><v-icon class="mr-2">{{ social.icon }}</v-icon
+            >{{ social.name }}</v-btn
+          >
+        </div>
+      </v-col>
+    </v-row>
+    <BaseDialog :dialog="dialog" />
+  </v-container>
+</template>
+
+<script>
+import BaseDialog from "../components/BaseComponent/BaseDialog.vue";
+export default {
+  data() {
+    return {
+      dialog: false,
+      requiredRule: (value) => !!value || "Please input something!",
+      emailMsg: "",
+      emailAns: "",
+      sns: [
+        { name: "Facebook", icon: "mdi-facebook", color: "#1877F2" },
+        { name: "LinkedIn", icon: "mdi-linkedin", color: "#0A66C2" },
+        { name: "Github", icon: "mdi-github", color: "" },
+        { name: "Instagram", icon: "mdi-instagram", color: "#E4405F" },
+      ],
+    };
+  },
+  methods: {
+    submitData() {
+      if (this.$refs.form.validate()) {
+        this.dialog = !this.dialog;
+      }
+    },
+  },
+  computed: {},
+  components: { BaseDialog },
+};
+</script>

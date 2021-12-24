@@ -1,18 +1,29 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-container>
+    <div class="d-flex justify-center text-sm-h3 font-weight-medium">
+      Peeranat Danaidusadeekul
+    </div>
+    <div class="d-flex justify-center text-sm-h6 mt-2 mb-5 font-weight-regular">
+      Developer | Photographer
+    </div>
+    <v-row style="height: 450px">
+      <v-img height="450px" :src="require('../../assets/home.png')"></v-img>
+    </v-row>
+    <div class="d-flex justify-center mt-12">
+      Scroll down to know more about me<v-icon class="mx-3"
+        >mdi-arrow-down</v-icon
+      >
+    </div>
+  </v-container>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      screenWidth: screen.width,
+    };
   },
 };
 </script>

@@ -1,32 +1,55 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <AppBar />
+    <v-main class="blue-grey darken-4">
+      <section id="home">
+        <v-row style="height: 700px" align="center" justify="center">
+          <Home />
+        </v-row>
+      </section>
+      <section id="about">
+        <v-row style="height: 700px" align="center" justify="center">
+          <About />
+        </v-row>
+      </section>
+      <section id="projects">
+        <v-row style="height: 700px" align="center" justify="center">
+          <Projects />
+        </v-row>
+      </section>
+      <section id="contact">
+        <v-row style="height: 700px" align="center" justify="center">
+          <ContactMe />
+        </v-row>
+      </section>
+    </v-main>
+    <Footer />
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+// UI Components
+import AppBar from "./components/UI/AppBar.vue";
+import Footer from "./components/UI/Footer.vue";
+// Pages
+import About from "./views/About.vue";
+import Home from "./views/Home.vue";
+import Projects from "./views/Projects.vue";
+import ContactMe from "./views/ContactMe.vue";
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: "App",
+  data: () => ({
+    //
+  }),
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: { AppBar, About, Footer, Home, ContactMe, Projects },
+};
+</script>
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+<style scoped>
+html,
+body {
+  font-family: "Montserrat", sans-serif;
 }
 </style>
