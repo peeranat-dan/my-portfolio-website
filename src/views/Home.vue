@@ -1,10 +1,10 @@
 <template>
-  <v-container>
+  <v-container class="mx-3">
     <div class="d-flex justify-center text-sm-h3 font-weight-medium">
       Peeranat Danaidusadeekul
     </div>
     <div class="d-flex justify-center text-sm-h6 mt-2 mb-5 font-weight-regular">
-      Developer | Photographer
+      developer | photographer
     </div>
     <v-row style="height: 450px">
       <v-img height="450px" :src="require('../../assets/home.png')"></v-img>

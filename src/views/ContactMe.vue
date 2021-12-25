@@ -1,11 +1,16 @@
 <template>
-  <v-container>
+  <v-container class="mx-3">
     <div class="text-sm-h5 text--secondary mb-12">Contact me</div>
     <v-row justify="center">
-      <v-col cols="8">
+      <v-col xs="12"
+        sm="12"
+        md="12"
+        lg="8"
+        xl="8">
         <v-form @submit.prevent="submitData" ref="form">
           <v-textarea
             filled
+            block
             color="hi"
             v-model="emailMsg"
             label="Leave your message here"
@@ -13,6 +18,7 @@
           ></v-textarea>
           <v-text-field
             filled
+            block
             color="hi"
             label="Your email here"
             v-model="emailAns"
@@ -23,7 +29,11 @@
           >
         </v-form>
       </v-col>
-      <v-col>
+      <v-col xs="12"
+        sm="12"
+        md="12"
+        lg="4"
+        xl="4">
         <div class="my-3" v-for="social in sns" :key="social.name">
           <v-btn block outlined :color="social.color"
             ><v-icon class="mr-2">{{ social.icon }}</v-icon

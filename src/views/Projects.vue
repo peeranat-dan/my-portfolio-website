@@ -59,7 +59,7 @@ export default {
           dark: "false",
           channel: "github",
           icon: "mdi-github",
-          url: "fakeUrl",
+          url: "https://github.com/peeranat-dan/my-portfolio-website.git",
           description:
             "Built own webpage to show my front-end developer skill and my personality.",
         },

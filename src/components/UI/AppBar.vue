@@ -18,18 +18,53 @@
       </v-btn>
     </div>
 
-    <v-app-bar-nav-icon class="mr-3" v-else></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon class="mr-3" v-else @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+    <!-- <v-navigation-drawer app right v-model="drawer" fixed dark> -->
+      <v-navigation-drawer right v-model="drawer" app class="blue darken-5">
+      <v-list>
+        <v-list-item v-for="link in navLinks" :key="link.name">
+          <v-list-item-action>
+            <v-icon class="white--text">{{ link.icon }}</v-icon>
+          </v-list-item-action>
+
+          <v-list-item-content>
+            <v-list-item-title class="white--text"> {{ link.name }} </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+      <!-- <v-list class="my-0"> -->
+        
+        <!-- <v-list-item
+          v-for="(item, i) in navLinks"
+          :key="i"
+          :href="item.href"
+          link
+          exact
+          
+        >
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.name" />
+          </v-list-item-content>
+        </v-list-item>
+      </v-list> -->
+    <!-- </v-navigation-drawer> -->
   </v-app-bar>
+  
 </template>
 
 <script>
 export default {
   data() {
     return {
+      drawer: false,
       navLinks: [
-        { name: "about me", href: "#about" },
-        { name: "projects", href: "#projects" },
-        { name: "contact me", href: "#contact" },
+        { name: "about me", href: "#about", icon: 'mdi-information-outline' },
+        { name: "projects", href: "#projects", icon: 'mdi-file-document-outline' },
+        { name: "contact me", href: "#contact", icon: 'mdi-phone-outline' },
       ],
       resumeUrl:
         "https://drive.google.com/file/d/1zaljVBAhkWv1Usiyb8wQop_dwjJshDST/view?usp=sharing",
@@ -39,6 +74,9 @@ export default {
     scrollToTop() {
       window.scrollTo(0, 0);
     },
+    logFunc(name) {
+      console.log(name)
+    }
   },
   computed: {
     isMobile() {

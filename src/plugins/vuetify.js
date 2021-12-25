@@ -14,6 +14,7 @@ const vuetify = new Vuetify({
         anchor: "#8c9eff",
         background: "#000",
         hi: "#9cd779",
+        nav: "#455A64"
       },
     },
   },

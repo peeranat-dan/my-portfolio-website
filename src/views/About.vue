@@ -2,7 +2,12 @@
   <v-container class="mx-3">
     <div class="text-sm-h5 text--secondary">About me</div>
     <v-row class="mt-5">
-      <v-col :cols="column">
+      <!-- <v-col :cols="column"> -->
+        <v-col xs="12"
+        sm="12"
+        md="12"
+        lg="8"
+        xl="8">
         <div class="text-sm-h6">Hi, I'm</div>
         <div class="text-sm-h3 font-weight-medium">
           Peeranat Danaidusadeekul.
@@ -31,10 +36,15 @@
           {{ skill }}
         </v-chip>
       </v-col>
-      <v-col>
+      <v-col xs="12"
+        sm="12"
+        md="12"
+        lg="4"
+        xl="4">
         <v-img
           class="mt-10"
           max-width="300"
+          v-if="myPicture"
           :src="require('../../assets/my-photo.jpg')"
         />
       </v-col>
@@ -65,13 +75,13 @@ export default {
     };
   },
   computed: {
-    column() {
+    myPicture() {
       const breakpoint = this.$vuetify.breakpoint.name;
-      if (breakpoint === "sm" || breakpoint === "xs") {
-        return 12;
+      if (breakpoint === "xs" || breakpoint === "sm") {
+        return false;
       }
-      return 8;
-    },
+      return true;
+    }
   },
 };
 </script>
