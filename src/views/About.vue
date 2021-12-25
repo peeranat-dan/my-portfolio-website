@@ -1,6 +1,6 @@
 <template>
   <v-container
-    class="mx-3"
+    class="px-3"
     style="height: 700px"
     align="center"
     justify="center"
