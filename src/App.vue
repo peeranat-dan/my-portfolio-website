@@ -32,7 +32,7 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-col v-if="!isMobile">
+      <div v-if="!isMobile">
         <a
           class="mx-2"
           v-for="link in navLinks"
@@ -48,7 +48,7 @@
         >
           <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume!
         </v-btn>
-      </v-col>
+      </div>
 
       <v-app-bar-nav-icon
         v-else
