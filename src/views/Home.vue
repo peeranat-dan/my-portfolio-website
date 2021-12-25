@@ -1,5 +1,10 @@
 <template>
-  <v-container class="mx-3">
+  <v-container
+    class="align-center"
+    style="height: 700px"
+    align="center"
+    justify="center"
+  >
     <div class="d-flex justify-center text-sm-h3 font-weight-medium">
       Peeranat Danaidusadeekul
     </div>

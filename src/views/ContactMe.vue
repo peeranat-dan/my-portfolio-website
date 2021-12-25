@@ -1,12 +1,13 @@
 <template>
-  <v-container class="mx-3">
+  <v-container
+    class="px-10 align-center"
+    style="height: 700px"
+    align="center"
+    justify="center"
+  >
     <div class="text-sm-h5 text--secondary mb-12">Contact me</div>
     <v-row justify="center">
-      <v-col xs="12"
-        sm="12"
-        md="12"
-        lg="8"
-        xl="8">
+      <v-col xs="12" sm="12" md="12" lg="8" xl="8">
         <v-form @submit.prevent="submitData" ref="form">
           <v-textarea
             filled
@@ -29,13 +30,9 @@
           >
         </v-form>
       </v-col>
-      <v-col xs="12"
-        sm="12"
-        md="12"
-        lg="4"
-        xl="4">
+      <v-col xs="12" sm="12" md="12" lg="4" xl="4">
         <div class="my-3" v-for="social in sns" :key="social.name">
-          <v-btn block outlined :color="social.color"
+          <v-btn block outlined :color="social.color" :href="social.url"
             ><v-icon class="mr-2">{{ social.icon }}</v-icon
             >{{ social.name }}</v-btn
           >
@@ -56,10 +53,30 @@ export default {
       emailMsg: "",
       emailAns: "",
       sns: [
-        { name: "Facebook", icon: "mdi-facebook", color: "#1877F2" },
-        { name: "LinkedIn", icon: "mdi-linkedin", color: "#0A66C2" },
-        { name: "Github", icon: "mdi-github", color: "" },
-        { name: "Instagram", icon: "mdi-instagram", color: "#E4405F" },
+        {
+          name: "Facebook",
+          icon: "mdi-facebook",
+          color: "#1877F2",
+          url: "https://www.facebook.com/nprdphoto",
+        },
+        {
+          name: "LinkedIn",
+          icon: "mdi-linkedin",
+          color: "#0A66C2",
+          url: "https://www.linkedin.com/in/peeranatd/",
+        },
+        {
+          name: "Github",
+          icon: "mdi-github",
+          color: "",
+          url: "https://github.com/peeranat-dan",
+        },
+        {
+          name: "Instagram",
+          icon: "mdi-instagram",
+          color: "#E4405F",
+          url: "https://instagram.com/nprdphoto",
+        },
       ],
     };
   },

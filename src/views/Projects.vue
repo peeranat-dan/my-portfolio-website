@@ -1,5 +1,10 @@
 <template>
-  <v-container class="mx-3">
+  <v-container
+    class="px-10 align-center"
+    style="height: 700px"
+    align="center"
+    justify="center"
+  >
     <div class="text-sm-h5 text--secondary">Projects</div>
     <v-row class="mt-12">
       <v-col

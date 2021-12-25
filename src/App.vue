@@ -1,65 +1,72 @@
 <template>
   <v-app>
-    <v-navigation-drawer right v-model="drawer" app dark class="nav">
+    <v-navigation-drawer color="nav" right v-model="drawer" app dark>
       <v-card color="nav" elevation="0">
-        <v-card-title class="font-weight-medium">NPRD<span style="color:rgb(121, 216, 121)">PHOTO</span></v-card-title>
+        <v-card-title
+          >NPRD<span style="color: rgb(121, 216, 121)"
+            >PHOTO</span
+          ></v-card-title
+        >
       </v-card>
-      <v-divider class="mx-3" />
-      <v-list>
-        <v-list-item v-for="link in navLinks" :key="link.name" :href="link.href">
+      <v-list color="nav" nav>
+        <v-list-item
+          v-for="link in navLinks"
+          :key="link.name"
+          :href="link.href"
+        >
           <v-list-item-action>
             <v-icon class="white--text">{{ link.icon }}</v-icon>
           </v-list-item-action>
 
           <v-list-item-content>
-            <v-list-item-title class="white--text"> {{ link.name }} </v-list-item-title>
+            <v-list-item-title class="white--text">
+              {{ link.name }}
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar hide-on-scroll class="blue-grey darken-4" app flat dark>
-    <div class="text-sm-h5 font-weight-bold" @click="scrollToTop">
-      NPRD<span style="color: rgb(121, 216, 121)">PHOTO</span>
-    </div>
-    
-    <v-spacer></v-spacer>
-    <div v-if="!isMobile">
-      <a
-        class="mx-2"
-        v-for="link in navLinks"
-        :key="link.name"
-        :href="link.href"
-        >{{ link.name }}</a
-      >
-      <v-btn outlined class="mx-2 text-lowercase" color="hi" :href="resumeUrl">
-        <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume!
-      </v-btn>
-    </div>
+    <v-app-bar app hide-on-scroll class="blue-grey darken-4" flat dark>
+      <div class="text-sm-h5 font-weight-bold" @click="scrollToTop">
+        NPRD<span style="color: rgb(121, 216, 121)">PHOTO</span>
+      </div>
 
-    <v-app-bar-nav-icon class="mr-3" v-else @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-    <!-- <v-navigation-drawer app right v-model="drawer" fixed dark> -->
-      
+      <v-spacer></v-spacer>
+      <v-col v-if="!isMobile">
+        <a
+          class="mx-2"
+          v-for="link in navLinks"
+          :key="link.name"
+          :href="link.href"
+          >{{ link.name }}</a
+        >
+        <v-btn
+          outlined
+          class="mx-2 text-lowercase"
+          color="hi"
+          :href="resumeUrl"
+        >
+          <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume!
+        </v-btn>
+      </v-col>
+
+      <v-app-bar-nav-icon
+        v-else
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
     </v-app-bar>
     <v-main class="blue-grey darken-4">
       <section id="home">
-        <v-row style="height: 700px" align="center" justify="center">
-          <Home />
-        </v-row>
+        <Home />
       </section>
       <section id="about">
-        <v-row style="height: 700px" align="center" justify="center">
-          <About />
-        </v-row>
+        <About />
       </section>
       <section id="projects">
-        <v-row style="height: 700px" align="center" justify="center">
-          <Projects />
-        </v-row>
+        <Projects />
       </section>
       <section id="contact">
-        <v-row style="height: 700px" align="center" justify="center">
-          <ContactMe />
-        </v-row>
+        <ContactMe />
       </section>
     </v-main>
     <Footer />
@@ -80,21 +87,25 @@ export default {
   name: "App",
   data: () => ({
     drawer: false,
-      navLinks: [
-        { name: "about me", href: "#about", icon: 'mdi-information-outline' },
-        { name: "projects", href: "#projects", icon: 'mdi-file-document-outline' },
-        { name: "contact me", href: "#contact", icon: 'mdi-phone-outline' },
-      ],
-      resumeUrl:
-        "https://drive.google.com/file/d/1zaljVBAhkWv1Usiyb8wQop_dwjJshDST/view?usp=sharing",
+    navLinks: [
+      { name: "about me", href: "#about", icon: "mdi-information-outline" },
+      {
+        name: "projects",
+        href: "#projects",
+        icon: "mdi-file-document-outline",
+      },
+      { name: "contact me", href: "#contact", icon: "mdi-phone-outline" },
+    ],
+    resumeUrl:
+      "https://drive.google.com/file/d/1zaljVBAhkWv1Usiyb8wQop_dwjJshDST/view?usp=sharing",
   }),
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);
     },
     logFunc(name) {
-      console.log(name)
-    }
+      console.log(name);
+    },
   },
   computed: {
     isMobile() {
@@ -113,5 +124,17 @@ export default {
 html,
 body {
   font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: white !important;
+}
+
+a:hover {
+  text-decoration: none;
+  outline: none;
+  color: #9cd779 !important;
 }
 </style>
