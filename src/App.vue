@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer color="nav" right v-model="drawer" app dark>
+    <v-navigation-drawer v-if="isMobile" color="nav" right v-model="drawer" app dark>
       <v-card color="nav" elevation="0">
         <v-card-title
           >NPRD<span style="color: rgb(121, 216, 121)"
