@@ -12,7 +12,7 @@
       developer | photographer
     </div>
     <v-row style="height: 450px">
-      <MyPhoto class="mt-8" v-if="isMobile" height="400px" />
+      <MyPhoto v-if="isMobile" height="400px" />
       <v-img
         v-if="!isMobile"
         height="450px"

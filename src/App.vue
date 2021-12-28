@@ -32,7 +32,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-      <ResumeButton :block="true" />
+      <ResumeButton :block="true" class="mx-3" />
     </v-navigation-drawer>
     <v-app-bar app hide-on-scroll class="blue-grey darken-4" flat dark>
       <div class="text-sm-h5 font-weight-bold" @click="scrollToTop">
@@ -48,7 +48,7 @@
           :href="link.href"
           >{{ link.name }}</a
         >
-        <ResumeButton :block="false" />
+        <ResumeButton class="mx-2" :block="false" />
       </div>
 
       <v-app-bar-nav-icon

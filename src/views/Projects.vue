@@ -39,12 +39,15 @@
                 >{{ tag }}</v-chip
               >
             </div>
-            <v-card-text>
+            <v-card-text v-if="project.channel">
               Visit <v-icon class="mx-1 mb-1">{{ project.icon }}</v-icon>
               <a :href="project.url">
                 {{ project.channel }}
               </a>
               <v-icon class="ml-2" x-small>mdi-open-in-new</v-icon>
+            </v-card-text>
+            <v-card-text v-else>
+              * No project repository due to confidential *
             </v-card-text>
           </v-card>
         </v-hover>
@@ -63,9 +66,8 @@ export default {
           name: "Telecare",
           color: "#244b5c",
           dark: "false",
-          channel: "medium",
+
           icon: "mdi-circle-multiple",
-          url: "fakeUrl",
           tags: ["NuxtJS", "NodeJS", "GCP"],
           description:
             "Designed and developed a mini telemedicine front-end and back-end system for True Digital Health.",
@@ -74,7 +76,7 @@ export default {
           name: "Portfolio website",
           color: "#244b5c",
           dark: "false",
-          channel: "github",
+          channel: "Github",
           icon: "mdi-github",
           url: "https://github.com/peeranat-dan/my-portfolio-website.git",
           tags: ["VueJS"],

@@ -1,7 +1,7 @@
 <template>
   <v-btn
     outlined
-    class="mx-2 text-lowercase"
+    class="text-lowercase"
     color="hi"
     :href="resumeUrl"
     :block="block"

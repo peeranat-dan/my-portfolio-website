@@ -19,9 +19,7 @@
           job opportunities in fields of
           <strong>front-end and back-end developers</strong>.
         </div>
-        <v-btn outlined class="mt-3" color="hi" :href="resumeUrl">
-          <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume!
-        </v-btn>
+        <ResumeButton class="mt-3" :block="false" />
         <div class="text-sm-h5 mt-6 mb-4">Hard Skills</div>
         <v-chip outlined v-for="skill in skills" :key="skill" class="mx-1 my-1">
           {{ skill }}
@@ -50,6 +48,7 @@
 </template>
 
 <script>
+import ResumeButton from "../components/BaseComponent/ResumeButton.vue";
 export default {
   data() {
     return {
@@ -79,5 +78,6 @@ export default {
       return true;
     },
   },
+  components: { ResumeButton },
 };
 </script>
