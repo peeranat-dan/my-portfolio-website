@@ -1,7 +1,7 @@
 <template>
   <v-container
     class="px-3 align-center"
-    style="height: 700px"
+    :style="isMobile ? 'height: 400px' : 'height: 700px'"
     align="center"
     justify="center"
   >
@@ -104,7 +104,15 @@ export default {
       }
     },
   },
-  computed: {},
+  computed: {
+    isMobile() {
+      return (
+        this.$vuetify.breakpoint.name === "xs" ||
+        this.$vuetify.breakpoint.name === "sm" ||
+        this.$vuetify.breakpoint.name === "md"
+      );
+    },
+  },
   // components: { BaseDialog },
 };
 </script>

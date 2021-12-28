@@ -66,11 +66,12 @@
       <section id="projects">
         <Projects />
       </section>
-      <section id="contact">
+      <section id="contact" v-if="isMobile">
         <ContactMe />
       </section>
     </v-main>
-    <Footer />
+    <Footer id="contact" v-if="!isMobile" />
+    <MobileFooter v-if="isMobile" />
   </v-app>
 </template>
 
@@ -79,6 +80,7 @@
 // import AppBar from "./components/UI/AppBar.vue";
 import Footer from "./components/UI/Footer.vue";
 import ResumeButton from "./components/BaseComponent/ResumeButton.vue";
+import MobileFooter from "./components/UI/MobileFooter.vue";
 // Pages
 import Home from "./views/Home.vue";
 import About from "./views/About.vue";
@@ -113,7 +115,15 @@ export default {
       );
     },
   },
-  components: { About, Footer, Home, ContactMe, Projects, ResumeButton },
+  components: {
+    About,
+    Footer,
+    Home,
+    ContactMe,
+    Projects,
+    ResumeButton,
+    MobileFooter,
+  },
 };
 </script>
 
