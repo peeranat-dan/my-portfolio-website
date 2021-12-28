@@ -1,22 +1,14 @@
 <template>
   <v-container
-    class="px-10 align-center"
+    class="px-3 align-center"
     style="height: 700px"
     align="center"
     justify="center"
   >
     <div class="text-sm-h5 text--secondary mb-12">Contact me</div>
-    <v-row justify="center">
-      <v-col xs="12" sm="12" md="12" lg="8" xl="8">
+    <v-row justify="start" align="center">
+      <!-- <v-col xs="12" sm="12" md="12" lg="8" xl="8">
         <v-form @submit.prevent="submitData" ref="form">
-          <v-textarea
-            filled
-            block
-            color="hi"
-            v-model="emailMsg"
-            label="Leave your message here"
-            :rules="[requiredRule]"
-          ></v-textarea>
           <v-text-field
             filled
             block
@@ -25,11 +17,28 @@
             v-model="emailAns"
             :rules="[requiredRule]"
           />
+          <v-text-field
+            filled
+            block
+            color="hi"
+            label="Subject"
+            v-model="subjectAns"
+            :rules="[requiredRule]"
+          />
+          <v-textarea
+            filled
+            block
+            color="hi"
+            v-model="emailMsg"
+            label="Leave your message here"
+            :rules="[requiredRule]"
+          ></v-textarea>
+          
           <v-btn block color="#51b081" type="submit"
             ><v-icon class="mr-2">mdi-email</v-icon>Hit my inbox</v-btn
           >
         </v-form>
-      </v-col>
+      </v-col> -->
       <v-col xs="12" sm="12" md="12" lg="4" xl="4">
         <div class="my-3" v-for="social in sns" :key="social.name">
           <v-btn block outlined :color="social.color" :href="social.url"
@@ -39,20 +48,28 @@
         </div>
       </v-col>
     </v-row>
-    <BaseDialog :dialog="dialog" />
+    <!-- <BaseDialog :dialog="dialog" /> -->
   </v-container>
 </template>
 
 <script>
-import BaseDialog from "../components/BaseComponent/BaseDialog.vue";
+// import BaseDialog from "../components/BaseComponent/BaseDialog.vue";
 export default {
   data() {
     return {
-      dialog: false,
-      requiredRule: (value) => !!value || "Please input something!",
-      emailMsg: "",
-      emailAns: "",
+      // dialog: false,
+      // requiredRule: (value) => !!value || "Please input something!",
+      // emailMsg: "",
+      // emailAns: "",
+      // subjectAns: "",
+      // mailto: "ppeeranat.d@gmail.com",
       sns: [
+        {
+          name: "Hit my mailbox!",
+          icon: "mdi-email-outline",
+          color: "hi",
+          url: "mailto:ppeeranat.d@gmail.com",
+        },
         {
           name: "Facebook",
           icon: "mdi-facebook",
@@ -88,6 +105,6 @@ export default {
     },
   },
   computed: {},
-  components: { BaseDialog },
+  // components: { BaseDialog },
 };
 </script>

@@ -1,6 +1,13 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-if="isMobile" color="nav" right v-model="drawer" app dark>
+    <v-navigation-drawer
+      v-if="isMobile"
+      color="nav"
+      right
+      v-model="drawer"
+      app
+      dark
+    >
       <v-card color="nav" elevation="0">
         <v-card-title
           >NPRD<span style="color: rgb(121, 216, 121)"
@@ -25,6 +32,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <ResumeButton :block="true" />
     </v-navigation-drawer>
     <v-app-bar app hide-on-scroll class="blue-grey darken-4" flat dark>
       <div class="text-sm-h5 font-weight-bold" @click="scrollToTop">
@@ -40,14 +48,7 @@
           :href="link.href"
           >{{ link.name }}</a
         >
-        <v-btn
-          outlined
-          class="mx-2 text-lowercase"
-          color="hi"
-          :href="resumeUrl"
-        >
-          <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume!
-        </v-btn>
+        <ResumeButton :block="false" />
       </div>
 
       <v-app-bar-nav-icon
@@ -77,9 +78,10 @@
 // UI Components
 // import AppBar from "./components/UI/AppBar.vue";
 import Footer from "./components/UI/Footer.vue";
+import ResumeButton from "./components/BaseComponent/ResumeButton.vue";
 // Pages
-import About from "./views/About.vue";
 import Home from "./views/Home.vue";
+import About from "./views/About.vue";
 import Projects from "./views/Projects.vue";
 import ContactMe from "./views/ContactMe.vue";
 
@@ -96,15 +98,10 @@ export default {
       },
       { name: "contact me", href: "#contact", icon: "mdi-phone-outline" },
     ],
-    resumeUrl:
-      "https://drive.google.com/file/d/1zaljVBAhkWv1Usiyb8wQop_dwjJshDST/view?usp=sharing",
   }),
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);
-    },
-    logFunc(name) {
-      console.log(name);
     },
   },
   computed: {
@@ -116,7 +113,7 @@ export default {
       );
     },
   },
-  components: { About, Footer, Home, ContactMe, Projects },
+  components: { About, Footer, Home, ContactMe, Projects, ResumeButton },
 };
 </script>
 

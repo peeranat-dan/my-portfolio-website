@@ -1,6 +1,6 @@
 <template>
   <v-container
-    class="px-10 align-center"
+    class="px-3 align-center"
     style="height: 700px"
     align="center"
     justify="center"
@@ -20,7 +20,7 @@
           <v-card
             :elevation="hover ? 16 : 0"
             :color="project.color"
-            height="200"
+            height="250"
             :light="!project.dark"
           >
             <v-card-title>
@@ -29,12 +29,23 @@
             <v-card-text>
               {{ project.description }}
             </v-card-text>
-            <a :href="project.url">
-              <v-card-text>
-                Visit <v-icon class="mx-1 mb-1">{{ project.icon }}</v-icon>
+            <div class="ml-3">
+              <v-chip
+                class="mx-1"
+                color="hi"
+                outlined
+                v-for="tag in project.tags"
+                :key="tag"
+                >{{ tag }}</v-chip
+              >
+            </div>
+            <v-card-text>
+              Visit <v-icon class="mx-1 mb-1">{{ project.icon }}</v-icon>
+              <a :href="project.url">
                 {{ project.channel }}
-              </v-card-text></a
-            >
+              </a>
+              <v-icon class="ml-2" x-small>mdi-open-in-new</v-icon>
+            </v-card-text>
           </v-card>
         </v-hover>
       </v-col>
@@ -55,8 +66,9 @@ export default {
           channel: "medium",
           icon: "mdi-circle-multiple",
           url: "fakeUrl",
+          tags: ["NuxtJS", "NodeJS", "GCP"],
           description:
-            "Designed and developed a 500,000 THB worth telemedicine front-end and back-end side for True Digital Health.",
+            "Designed and developed a mini telemedicine front-end and back-end system for True Digital Health.",
         },
         {
           name: "Portfolio website",
@@ -65,6 +77,7 @@ export default {
           channel: "github",
           icon: "mdi-github",
           url: "https://github.com/peeranat-dan/my-portfolio-website.git",
+          tags: ["VueJS"],
           description:
             "Built own webpage to show my front-end developer skill and my personality.",
         },
@@ -73,16 +86,11 @@ export default {
   },
   methods: {},
   computed: {},
-  created() {
-    console.log(this.$vuetify.breakpoint.name);
-  },
 };
 </script>
 
 <style scoped>
 a {
-  text-decoration: none;
-  outline: none;
   color: white !important;
 }
 </style>
