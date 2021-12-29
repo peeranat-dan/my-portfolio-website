@@ -15,6 +15,7 @@
       <MyPhoto v-if="isMobile" height="400px" />
       <v-img
         v-if="!isMobile"
+        transition="scroll-y-transition"
         height="450px"
         :src="require('../../assets/home.png')"
       ></v-img>

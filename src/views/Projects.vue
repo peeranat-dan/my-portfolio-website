@@ -68,7 +68,7 @@ export default {
           dark: "false",
 
           icon: "mdi-circle-multiple",
-          tags: ["NuxtJS", "NodeJS", "GCP"],
+          tags: ["NuxtJS", "NodeJS", "Firebase"],
           description:
             "Designed and developed a mini telemedicine front-end and back-end system for True Digital Health.",
         },

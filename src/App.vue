@@ -35,7 +35,7 @@
       <ResumeButton :block="true" class="mx-3" />
     </v-navigation-drawer>
     <v-app-bar app hide-on-scroll class="blue-grey darken-4" flat dark>
-      <div class="text-sm-h5 font-weight-bold" @click="scrollToTop">
+      <div class="text-sm-h5 font-weight-bold pointer" @click="scrollToTop">
         NPRD<span style="color: rgb(121, 216, 121)">PHOTO</span>
       </div>
 
@@ -143,5 +143,9 @@ a:hover {
   text-decoration: none;
   outline: none;
   color: #9cd779 !important;
+}
+
+.pointer {
+  cursor: pointer;
 }
 </style>
