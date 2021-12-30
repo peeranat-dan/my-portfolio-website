@@ -1,21 +1,14 @@
 <template>
   <v-footer app dark color="nav" absolute padless height="100">
-    <div class="ml-10 font-weight-bold">Contact</div>
-    <v-row justify="center" no-gutters v-for="social in sns" :key="social.name">
-      <center>
-        <v-col class="mx-0">
-          <v-btn
-            elevation="0"
-            color="nav"
-            :href="social.url"
-            class="text-capitalize"
-            ><v-icon :color="social.color" class="mr-2">{{
-              social.icon
-            }}</v-icon
-            >{{ social.name }}</v-btn
-          >
-        </v-col>
-      </center>
+    <v-row justify="center" no-gutters>
+      <v-col class="mx-0" cols="2" v-for="social in sns" :key="social.name">
+        <a :href="social.url"
+          ><v-icon :color="social.color" class="mr-2 mb-1">{{
+            social.icon
+          }}</v-icon
+          >{{ social.name }}</a
+        >
+      </v-col>
     </v-row>
   </v-footer>
 </template>
@@ -62,3 +55,17 @@ export default {
   computed: {},
 };
 </script>
+
+<style scoped>
+a {
+  outline: none;
+  text-decoration: none;
+  color: white !important;
+}
+
+a:hover {
+  outline: none;
+  text-decoration: none;
+  color: #9cd779 !important;
+}
+</style>

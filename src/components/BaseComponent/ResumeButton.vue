@@ -1,12 +1,6 @@
 <template>
-  <v-btn
-    outlined
-    class="text-lowercase"
-    color="hi"
-    :href="resumeUrl"
-    :block="block"
-  >
-    <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume!
+  <v-btn outlined color="hi" :href="resumeUrl" :block="block">
+    <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume
   </v-btn>
 </template>
 

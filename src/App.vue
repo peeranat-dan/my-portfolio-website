@@ -40,9 +40,9 @@
       </div>
 
       <v-spacer></v-spacer>
-      <div v-if="!isMobile">
+      <div v-if="!isMobile" class="mt-2">
         <a
-          class="mx-2"
+          class="mx-3"
           v-for="link in navLinks"
           :key="link.name"
           :href="link.href"
@@ -92,13 +92,13 @@ export default {
   data: () => ({
     drawer: false,
     navLinks: [
-      { name: "about me", href: "#about", icon: "mdi-information-outline" },
+      { name: "ABOUT ME", href: "#about", icon: "mdi-information-outline" },
       {
-        name: "projects",
+        name: "PROJECTS",
         href: "#projects",
         icon: "mdi-file-document-outline",
       },
-      { name: "contact me", href: "#contact", icon: "mdi-phone-outline" },
+      { name: "CONTACT ME", href: "#contact", icon: "mdi-phone-outline" },
     ],
   }),
   methods: {

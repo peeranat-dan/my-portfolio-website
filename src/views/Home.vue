@@ -8,11 +8,11 @@
     <div class="d-flex justify-center text-sm-h3 font-weight-medium">
       Peeranat Danaidusadeekul
     </div>
-    <div class="d-flex justify-center text-sm-h6 mt-2 mb-5 font-weight-regular">
-      developer | photographer
+    <div class="d-flex justify-center text-sm-h6 mt-3 mb-3 font-weight-regular">
+      Developer | Photographer
     </div>
-    <v-row style="height: 450px">
-      <MyPhoto v-if="isMobile" height="400px" />
+    <v-row style="height: 450px" align="center">
+      <MyPhoto v-if="isMobile" height="390px" />
       <v-img
         v-if="!isMobile"
         transition="scroll-y-transition"

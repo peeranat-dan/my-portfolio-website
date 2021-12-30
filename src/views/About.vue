@@ -72,7 +72,7 @@ export default {
   computed: {
     myPicture() {
       const breakpoint = this.$vuetify.breakpoint.name;
-      if (breakpoint === "xs" || breakpoint === "sm") {
+      if (breakpoint === "xs" || breakpoint === "sm" || breakpoint === "md") {
         return false;
       }
       return true;
