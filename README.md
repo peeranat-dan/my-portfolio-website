@@ -2,7 +2,7 @@
 
 ### Site URL
 ```
-[Here](https://peeranatdan-portfolio.netlify.app/)
+<https://peeranatdan-portfolio.netlify.app/>
 ```
 
 ## Project setup
