@@ -1,5 +1,11 @@
 <template>
-  <v-btn outlined color="hi" :href="resumeUrl" :block="block">
+  <v-btn
+    outlined
+    color="hi"
+    :href="resumeUrl"
+    :block="block"
+    class="text-capitalize"
+  >
     <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume
   </v-btn>
 </template>
@@ -9,7 +15,7 @@ export default {
   data() {
     return {
       resumeUrl:
-        "https://drive.google.com/file/d/156Ry9hxulCF04s9dBcyiEQ3dLJPs-YSk/view?usp=sharing",
+        "https://drive.google.com/file/d/19rnOZWjy4Y5icT7jbdAGaADzhl-L8nGq/view?usp=sharing",
     };
   },
   methods: {},

@@ -35,12 +35,7 @@
         </v-chip>
       </v-col>
       <v-col xs="12" sm="12" md="12" lg="4" xl="4">
-        <v-img
-          class="mt-10"
-          max-width="300"
-          v-if="myPicture"
-          :src="require('../../assets/my-photo.jpg')"
-        />
+        <MyPhoto height="450" />
       </v-col>
     </v-row>
     <v-divider dark class="mt-5"></v-divider>
@@ -48,7 +43,8 @@
 </template>
 
 <script>
-import ResumeButton from "../components/BaseComponent/ResumeButton.vue";
+import ResumeButton from "@/components/BaseComponent/ResumeButton.vue";
+import MyPhoto from "@/components/Photo/MyPhoto";
 export default {
   data() {
     return {
@@ -78,6 +74,6 @@ export default {
       return true;
     },
   },
-  components: { ResumeButton },
+  components: { ResumeButton, MyPhoto },
 };
 </script>

@@ -32,7 +32,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-      <ResumeButton :block="true" class="mx-3" />
+      <ResumeButton :block="true" class="mx-4" />
     </v-navigation-drawer>
     <v-app-bar app hide-on-scroll class="blue-grey darken-4" flat dark>
       <div class="text-sm-h5 font-weight-bold pointer" @click="scrollToTop">
@@ -92,13 +92,21 @@ export default {
   data: () => ({
     drawer: false,
     navLinks: [
-      { name: "ABOUT ME", href: "#about", icon: "mdi-information-outline" },
       {
-        name: "PROJECTS",
+        name: "About me",
+        href: "#about",
+        icon: "mdi-information-outline",
+      },
+      {
+        name: "Project",
         href: "#projects",
         icon: "mdi-file-document-outline",
       },
-      { name: "CONTACT ME", href: "#contact", icon: "mdi-phone-outline" },
+      {
+        name: "Contact me",
+        href: "#contact",
+        icon: "mdi-phone-outline",
+      },
     ],
   }),
   methods: {

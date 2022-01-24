@@ -4,11 +4,6 @@
 
 <script>
 export default {
-  data() {
-    return {};
-  },
-  methods: {},
-  computed: {},
   props: {
     height: {
       type: String,
