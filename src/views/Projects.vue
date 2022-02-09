@@ -18,7 +18,7 @@
       >
         <v-hover v-slot="{ hover }" open-delay="200">
           <v-card
-            :elevation="hover ? 16 : 0"
+            :elevation="hover ? 4 : 0"
             :color="project.color"
             height="250"
             :light="!project.dark"
@@ -82,6 +82,17 @@ export default {
           tags: ["VueJS"],
           description:
             "Built own webpage to show my front-end developer skill and my personality.",
+        },
+        {
+          name: "Pomo-Pomo (In Development)",
+          color: "#244b5c",
+          dark: "false",
+          channel: "Github",
+          icon: "mdi-github",
+          url: "https://github.com/peeranat-dan/pomo-pomo",
+          tags: ["Vue 3", "Vite", "Supabase", "TailwindCSS"],
+          description:
+            "A pomodoro timer developed with Vue 3 + Vite. This project use new Vue 3 script setup + Pinia as a data store.",
         },
       ],
     };
