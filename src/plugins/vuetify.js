@@ -20,6 +20,7 @@ const vuetify = new Vuetify({
         chip: "#F2ECE2",
         linkOnCard: "#FFDE82",
         mobileNav: "#bfceb2",
+        gallery: "#e5e7d4",
       },
     },
   },

@@ -7,7 +7,7 @@
     padless
     :height="isMobile ? 100 : 150"
   >
-    <v-container class="py-4">
+    <v-container class="pb-4">
       <div>
         <p>Contact me at</p>
         <a v-for="social in sns" :key="social.name" :href="social.url">
