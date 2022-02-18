@@ -1,16 +1,15 @@
 <template>
-  <v-footer color="hi" absolute app>
-    <v-row no-gutters align="center" justify="center" style="height: 80px">
+  <v-footer color="primary" app fixed style="height: 80px" dark>
+    <v-row no-gutters align="center" justify="center">
       <v-col cols="12">
-        <div class="black--text text-center">
-          <strong>2021</strong> - Peeranat D.
+        <div class="text-center">
           <v-btn
             class="ml-3"
-            color="#41493B"
+            color="chip"
             elevation="0"
             outlined
-            @click="scrollToTop"
-            ><v-icon class="mr-2" color="#41493B">mdi-arrow-up-circle</v-icon>to
+            @click="smoothScrolling('#about')"
+            ><v-icon class="mr-2" color="chipB">mdi-arrow-up-circle</v-icon>to
             the top</v-btn
           >
         </div>
@@ -25,8 +24,12 @@ export default {
     return {};
   },
   methods: {
-    scrollToTop() {
-      window.scrollTo(0, 0);
+    smoothScrolling(link) {
+      this.$vuetify.goTo(link, {
+        duration: 700,
+        offset: 0,
+        easing: "easeInOutCubic",
+      });
     },
   },
   computed: {},

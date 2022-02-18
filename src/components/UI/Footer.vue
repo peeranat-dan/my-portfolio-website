@@ -1,15 +1,20 @@
 <template>
-  <v-footer app dark color="nav" absolute padless height="100">
-    <v-row justify="center" no-gutters>
-      <v-col class="mx-0" cols="2" v-for="social in sns" :key="social.name">
-        <a :href="social.url"
-          ><v-icon :color="social.color" class="mr-2 mb-1">{{
-            social.icon
-          }}</v-icon
-          >{{ social.name }}</a
-        >
-      </v-col>
-    </v-row>
+  <v-footer
+    app
+    dark
+    color="primary"
+    absolute
+    padless
+    :height="isMobile ? 100 : 150"
+  >
+    <v-container class="py-4">
+      <div>
+        <p>Contact me at</p>
+        <a v-for="social in sns" :key="social.name" :href="social.url">
+          <v-icon color="chip" class="mx-2 mb-1">{{ social.icon }}</v-icon>
+        </a>
+      </div>
+    </v-container>
   </v-footer>
 </template>
 
@@ -21,7 +26,7 @@ export default {
         {
           name: "Hit my mailbox!",
           icon: "mdi-email-outline",
-          color: "hi",
+          color: "chip",
           url: "mailto:ppeeranat.d@gmail.com",
         },
         {
@@ -52,7 +57,15 @@ export default {
     };
   },
   methods: {},
-  computed: {},
+  computed: {
+    isMobile() {
+      return (
+        this.$vuetify.breakpoint.name === "xs" ||
+        this.$vuetify.breakpoint.name === "sm" ||
+        this.$vuetify.breakpoint.name === "md"
+      );
+    },
+  },
 };
 </script>
 

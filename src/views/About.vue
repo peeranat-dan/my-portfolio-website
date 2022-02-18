@@ -1,26 +1,34 @@
 <template>
-  <v-container
-    class="px-3"
-    style="height: 700px"
-    align="center"
-    justify="center"
-  >
-    <div class="text-sm-h5 text--secondary">About me</div>
-    <v-row class="mt-5">
+  <v-container class="px-5" style="height: 720px" fill-height justify="center">
+    <!-- <div class="text-sm-h5 text--secondary">About me</div> -->
+    <v-row align="center">
       <!-- <v-col :cols="column"> -->
       <v-col xs="12" sm="12" md="12" lg="8" xl="8">
-        <div class="text-sm-h6">Hi, I'm</div>
-        <div class="text-sm-h3 font-weight-medium">
-          Peeranat Danaidusadeekul.
+        <h3>Hi, I'm</h3>
+        <h1 class="primary--text">Peeranat Danaidusadeekul.</h1>
+        <div class="mt-4">
+          I'm a fourth year
+          <strong class="suplimentary--text"
+            >Industrial Engineering student</strong
+          >
+          at Chulalongkorn University who currently seeking for more challenging
+          job opportunities in field of
+          <strong class="suplimentary--text"
+            >front-end and back-end developers</strong
+          >.
         </div>
-        <div class="text--secondary mt-4">
-          I'm a fourth year <strong>Industrial Engineering student</strong> at
-          Chulalongkorn University who currently seeking for more challenging
-          job opportunities in fields of
-          <strong>front-end and back-end developers</strong>.
+        <div class="mt-2">
+          <v-btn
+            icon
+            v-for="social in sns"
+            :key="social.name"
+            :href="social.url"
+          >
+            <v-icon>{{ social.icon }}</v-icon>
+          </v-btn>
         </div>
-        <ResumeButton class="mt-3" :block="false" />
-        <div class="text-sm-h5 mt-6 mb-4">Hard Skills</div>
+        <!-- <ResumeButton class="mt-3" :block="false" /> -->
+        <!-- <div class="text-sm-h5 mt-6 mb-4">Hard Skills</div>
         <v-chip outlined v-for="skill in skills" :key="skill" class="mx-1 my-1">
           {{ skill }}
         </v-chip>
@@ -32,10 +40,10 @@
           class="mx-1 my-1"
         >
           {{ skill }}
-        </v-chip>
+        </v-chip> -->
       </v-col>
       <v-col xs="12" sm="12" md="12" lg="4" xl="4">
-        <MyPhoto height="450" />
+        <MyPhoto :height="isMobile ? 400 : 450" />
       </v-col>
     </v-row>
     <v-divider dark class="mt-5"></v-divider>
@@ -43,7 +51,7 @@
 </template>
 
 <script>
-import ResumeButton from "@/components/BaseComponent/ResumeButton.vue";
+// import ResumeButton from "@/components/BaseComponent/ResumeButton.vue";
 import MyPhoto from "@/components/Photo/MyPhoto";
 export default {
   data() {
@@ -63,6 +71,38 @@ export default {
       hardSkills: ["Collaborative", "Communication", "Team working"],
       resumeUrl:
         "https://drive.google.com/file/d/1zaljVBAhkWv1Usiyb8wQop_dwjJshDST/view?usp=sharing",
+      sns: [
+        {
+          name: "Hit my mailbox!",
+          icon: "mdi-email-outline",
+          color: "hi",
+          url: "mailto:ppeeranat.d@gmail.com",
+        },
+        {
+          name: "Facebook",
+          icon: "mdi-facebook",
+          color: "#1877F2",
+          url: "https://www.facebook.com/nprdphoto",
+        },
+        {
+          name: "LinkedIn",
+          icon: "mdi-linkedin",
+          color: "#0A66C2",
+          url: "https://www.linkedin.com/in/peeranatd/",
+        },
+        {
+          name: "Github",
+          icon: "mdi-github",
+          color: "",
+          url: "https://github.com/peeranat-dan",
+        },
+        {
+          name: "Instagram",
+          icon: "mdi-instagram",
+          color: "#E4405F",
+          url: "https://instagram.com/nprdphoto",
+        },
+      ],
     };
   },
   computed: {
@@ -73,7 +113,17 @@ export default {
       }
       return true;
     },
+    isMobile() {
+      return (
+        this.$vuetify.breakpoint.name === "xs" ||
+        this.$vuetify.breakpoint.name === "sm" ||
+        this.$vuetify.breakpoint.name === "md"
+      );
+    },
   },
-  components: { ResumeButton, MyPhoto },
+  components: {
+    // ResumeButton,
+    MyPhoto,
+  },
 };
 </script>

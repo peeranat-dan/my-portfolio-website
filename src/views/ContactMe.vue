@@ -1,10 +1,5 @@
 <template>
-  <v-container
-    class="px-3 align-center"
-    :style="isMobile ? 'height: 400px' : 'height: 700px'"
-    align="center"
-    justify="center"
-  >
+  <v-container class="px-3 align-center" fill-height justify="center">
     <div class="text-sm-h5 text--secondary mb-12">Contact me</div>
     <v-row justify="start" align="center">
       <v-col xs="12" sm="12" md="12" lg="4" xl="4">
