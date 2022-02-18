@@ -83,6 +83,9 @@
       <!-- <section id="contact" v-if="isMobile">
         <ContactMe />
       </section> -->
+      <section id="photography" class="gallery">
+        <Photography />
+      </section>
     </v-main>
     <Footer id="contact" />
     <!-- <MobileFooter v-if="isMobile" /> -->
@@ -100,6 +103,7 @@ import ResumeButton from "./components/BaseComponent/ResumeButton.vue";
 import About from "./views/About.vue";
 import Projects from "./views/Projects.vue";
 // import ContactMe from "./views/ContactMe.vue";
+import Photography from "./views/Photography.vue";
 
 export default {
   name: "App",
@@ -115,6 +119,11 @@ export default {
         name: "Project",
         href: "#projects",
         icon: "mdi-file-document-outline",
+      },
+      {
+        name: "Photo",
+        href: "#photography",
+        icon: "mdi-image-multiple-outline",
       },
       {
         name: "Contact me",
@@ -152,6 +161,7 @@ export default {
     Projects,
     ResumeButton,
     // MobileFooter,
+    Photography,
   },
 };
 </script>

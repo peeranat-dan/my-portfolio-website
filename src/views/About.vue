@@ -6,6 +6,7 @@
       <v-col xs="12" sm="12" md="12" lg="8" xl="8">
         <h3>Hi, I'm</h3>
         <h1 class="primary--text">Peeranat Danaidusadeekul.</h1>
+        <h5 class="font-weight-regular">developer | photographer</h5>
         <div class="mt-4">
           I'm a fourth year
           <strong class="suplimentary--text"
@@ -14,7 +15,7 @@
           at Chulalongkorn University who currently seeking for more challenging
           job opportunities in field of
           <strong class="suplimentary--text"
-            >front-end and back-end developers</strong
+            >front-end and back-end developer</strong
           >.
         </div>
         <div class="mt-2">
@@ -43,7 +44,7 @@
         </v-chip> -->
       </v-col>
       <v-col xs="12" sm="12" md="12" lg="4" xl="4">
-        <MyPhoto :height="isMobile ? 400 : 450" />
+        <MyPhoto :height="isMobile ? '400' : '450'" />
       </v-col>
     </v-row>
     <v-divider dark class="mt-5"></v-divider>
