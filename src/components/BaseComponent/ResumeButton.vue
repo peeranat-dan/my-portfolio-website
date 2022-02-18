@@ -1,10 +1,10 @@
 <template>
   <v-btn
     outlined
-    color="hi"
+    color="button"
     :href="resumeUrl"
     :block="block"
-    class="text-capitalize"
+    class="text-capitalize rounded-xl"
   >
     <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume
   </v-btn>

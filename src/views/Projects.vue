@@ -1,12 +1,15 @@
 <template>
   <v-container
-    class="px-3 align-center"
-    style="height: 700px"
+    class="px-5"
+    :style="isMobile ? '' : 'height: 720px'"
+    fill-height
     align="center"
     justify="center"
   >
-    <div class="text-sm-h5 text--secondary">Projects</div>
-    <v-row class="mt-12">
+    <v-row>
+      <v-col cols="12">
+        <h2 class="text--secondary font-weight-regular">Projects</h2>
+      </v-col>
       <v-col
         cols="12"
         xs="12"
@@ -16,44 +19,37 @@
         v-for="project in projects"
         :key="project.name"
       >
-        <v-hover v-slot="{ hover }" open-delay="200">
-          <v-card
-            :elevation="hover ? 4 : 0"
-            :color="project.color"
-            height="250"
-            :light="!project.dark"
-          >
-            <v-card-title>
-              {{ project.name }}
-            </v-card-title>
-            <v-card-text>
-              {{ project.description }}
-            </v-card-text>
-            <div class="ml-3">
-              <v-chip
-                class="mx-1"
-                color="hi"
-                outlined
-                v-for="tag in project.tags"
-                :key="tag"
-                >{{ tag }}</v-chip
-              >
-            </div>
-            <v-card-text v-if="project.channel">
-              Visit <v-icon class="mx-1 mb-1">{{ project.icon }}</v-icon>
-              <a :href="project.url">
-                {{ project.channel }}
-              </a>
-              <v-icon class="ml-2" x-small>mdi-open-in-new</v-icon>
-            </v-card-text>
-            <v-card-text v-else>
-              * No project repository due to confidential *
-            </v-card-text>
-          </v-card>
-        </v-hover>
+        <v-card color="primary" height="250" :light="!project.dark">
+          <v-card-title class="white--text">
+            {{ project.name }}
+          </v-card-title>
+          <v-card-text class="chip--text">
+            {{ project.description }}
+          </v-card-text>
+          <div class="ml-3">
+            <v-chip
+              class="mx-1 mb-1"
+              color="#FFFBCE"
+              outlined
+              v-for="tag in project.tags"
+              :key="tag"
+              >{{ tag }}</v-chip
+            >
+          </div>
+          <v-card-text class="chip--text" v-if="project.channel">
+            Visit
+            <v-icon class="mx-1 mb-1" color="chip">{{ project.icon }}</v-icon>
+            <a :href="project.url">
+              <strong>{{ project.channel }}</strong>
+            </a>
+            <v-icon class="ml-2" x-small color="chip">mdi-open-in-new</v-icon>
+          </v-card-text>
+          <v-card-text class="chip--text" v-else>
+            * No project repository due to confidential *
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
-    <v-divider class="mt-8" />
   </v-container>
 </template>
 
@@ -65,7 +61,7 @@ export default {
         {
           name: "Telecare",
           color: "#244b5c",
-          dark: "false",
+          dark: false,
 
           icon: "mdi-circle-multiple",
           tags: ["NuxtJS", "NodeJS", "Firebase"],
@@ -75,35 +71,50 @@ export default {
         {
           name: "Portfolio website",
           color: "#244b5c",
-          dark: "false",
+          dark: false,
           channel: "Github",
           icon: "mdi-github",
           url: "https://github.com/peeranat-dan/my-portfolio-website.git",
-          tags: ["VueJS"],
+          tags: ["Vue 2", "Vuetify"],
           description:
             "Built own webpage to show my front-end developer skill and my personality.",
         },
         {
-          name: "Pomo-Pomo (In Development)",
+          name: "Pomo-Pomo (In-Dev)",
           color: "#244b5c",
-          dark: "false",
+          dark: false,
           channel: "Github",
           icon: "mdi-github",
           url: "https://github.com/peeranat-dan/pomo-pomo",
           tags: ["Vue 3", "Vite", "Supabase", "TailwindCSS"],
-          description:
-            "A pomodoro timer developed with Vue 3 + Vite. This project use new Vue 3 script setup + Pinia as a data store.",
+          description: "A pomodoro timer developed with Vue 3 + Vite + Pinia.",
         },
       ],
     };
   },
   methods: {},
-  computed: {},
+  computed: {
+    screenHeight() {
+      return screen.height;
+    },
+    isMobile() {
+      return (
+        this.$vuetify.breakpoint.name === "xs" ||
+        this.$vuetify.breakpoint.name === "sm" ||
+        this.$vuetify.breakpoint.name === "md"
+      );
+    },
+  },
 };
 </script>
 
 <style scoped>
 a {
+  text-decoration: none;
+  outline: none;
   color: white !important;
+}
+a:hover {
+  color: #ffde82 !important;
 }
 </style>

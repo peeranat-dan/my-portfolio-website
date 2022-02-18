@@ -5,12 +5,12 @@
     align="center"
     justify="center"
   >
-    <div class="d-flex justify-center text-sm-h3 font-weight-medium">
-      Peeranat Danaidusadeekul
-    </div>
-    <div class="d-flex justify-center text-sm-h6 mt-3 mb-3 font-weight-regular">
+    <h3
+      style="font-size: 10vw"
+      class="d-flex justify-center mt-3 mb-3 font-weight-regular"
+    >
       Developer | Photographer
-    </div>
+    </h3>
     <v-row style="height: 500px" align="center">
       <MyPhoto v-if="isMobile" height="390px" />
       <v-img

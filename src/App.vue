@@ -2,42 +2,56 @@
   <v-app>
     <v-navigation-drawer
       v-if="isMobile"
-      color="nav"
+      color="chip"
       right
       v-model="drawer"
       app
-      dark
+      class="px-2"
     >
-      <v-card color="nav" elevation="0">
-        <v-card-title
-          >NPRD<span style="color: rgb(121, 216, 121)"
-            >PHOTO</span
-          ></v-card-title
-        >
+      <v-card
+        color="chip"
+        elevation="0"
+        class="ml-2"
+        @click="smoothScrolling('#about')"
+      >
+        <h2 class="mt-5 primary--text">PEERANAT</h2>
+        <p>developer | photographer</p>
       </v-card>
-      <v-list color="nav" nav>
+      <v-list color="chip" nav light>
         <v-list-item
           v-for="link in navLinks"
           :key="link.name"
-          :href="link.href"
+          @click="smoothScrolling(link.href)"
         >
           <v-list-item-action>
-            <v-icon class="white--text">{{ link.icon }}</v-icon>
+            <v-icon>{{ link.icon }}</v-icon>
           </v-list-item-action>
 
           <v-list-item-content>
-            <v-list-item-title class="white--text">
+            <v-list-item-title>
               {{ link.name }}
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
-      <ResumeButton :block="true" class="mx-4" />
+      <ResumeButton :block="true" />
     </v-navigation-drawer>
-    <v-app-bar app hide-on-scroll class="blue-grey darken-4" flat dark>
-      <div class="text-sm-h5 font-weight-bold pointer" @click="scrollToTop">
-        NPRD<span style="color: rgb(121, 216, 121)">PHOTO</span>
-      </div>
+    <v-app-bar
+      app
+      hide-on-scroll
+      color="white"
+      flat
+      :extended="!isMobile"
+      class="pt-4 pb-4"
+      id="nav"
+    >
+      <h1
+        class="ml-3 font-weight-bold pointer"
+        @click="smoothScrolling('#nav')"
+        v-if="!isMobile"
+      >
+        <span class="primary--text">Peeranat</span> Danaidusadeekul
+      </h1>
 
       <v-spacer></v-spacer>
       <div v-if="!isMobile" class="mt-2">
@@ -45,10 +59,10 @@
           class="mx-3"
           v-for="link in navLinks"
           :key="link.name"
-          :href="link.href"
+          @click="smoothScrolling(link.href)"
           >{{ link.name }}</a
         >
-        <ResumeButton class="mx-2" :block="false" />
+        <ResumeButton class="ml-10 mr-12" :block="false" />
       </div>
 
       <v-app-bar-nav-icon
@@ -56,22 +70,22 @@
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-main class="blue-grey darken-4">
-      <section id="home">
+    <v-main>
+      <!-- <section id="home">
         <Home />
-      </section>
+      </section> -->
       <section id="about">
         <About />
       </section>
       <section id="projects">
         <Projects />
       </section>
-      <section id="contact" v-if="isMobile">
+      <!-- <section id="contact" v-if="isMobile">
         <ContactMe />
-      </section>
+      </section> -->
     </v-main>
-    <Footer id="contact" v-if="!isMobile" />
-    <MobileFooter v-if="isMobile" />
+    <Footer id="contact" />
+    <!-- <MobileFooter v-if="isMobile" /> -->
   </v-app>
 </template>
 
@@ -80,12 +94,12 @@
 // import AppBar from "./components/UI/AppBar.vue";
 import Footer from "./components/UI/Footer.vue";
 import ResumeButton from "./components/BaseComponent/ResumeButton.vue";
-import MobileFooter from "./components/UI/MobileFooter.vue";
+// import MobileFooter from "./components/UI/MobileFooter.vue";
 // Pages
-import Home from "./views/Home.vue";
+// import Home from "./views/Home.vue";
 import About from "./views/About.vue";
 import Projects from "./views/Projects.vue";
-import ContactMe from "./views/ContactMe.vue";
+// import ContactMe from "./views/ContactMe.vue";
 
 export default {
   name: "App",
@@ -93,7 +107,7 @@ export default {
     drawer: false,
     navLinks: [
       {
-        name: "About me",
+        name: "Home",
         href: "#about",
         icon: "mdi-information-outline",
       },
@@ -110,8 +124,15 @@ export default {
     ],
   }),
   methods: {
-    scrollToTop() {
-      window.scrollTo(0, 0);
+    smoothScrolling(link) {
+      this.$vuetify.goTo(link, {
+        duration: 700,
+        offset: 0,
+        easing: "easeInOutCubic",
+      });
+      if (this.isMobile) {
+        this.drawer = !this.drawer;
+      }
     },
   },
   computed: {
@@ -126,34 +147,48 @@ export default {
   components: {
     About,
     Footer,
-    Home,
-    ContactMe,
+    // Home,
+    // ContactMe,
     Projects,
     ResumeButton,
-    MobileFooter,
+    // MobileFooter,
   },
 };
 </script>
 
-<style scoped>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
 html,
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
-a {
-  text-decoration: none;
-  outline: none;
-  color: white !important;
+#app {
+  font-family: "Manrope", sans-serif;
 }
 
 a:hover {
   text-decoration: none;
   outline: none;
-  color: #9cd779 !important;
+  color: #8ca988 !important;
 }
 
 .pointer {
   cursor: pointer;
+}
+</style>
+
+<style scoped>
+a {
+  text-decoration: none;
+  outline: none;
+  color: black !important;
+}
+
+a:hover {
+  text-decoration: none;
+  outline: none;
+  color: #8ca988 !important;
 }
 </style>
