@@ -77,6 +77,9 @@
       <section id="about">
         <About />
       </section>
+      <section id="skills">
+        <Skills />
+      </section>
       <section id="projects">
         <Projects />
       </section>
@@ -99,11 +102,10 @@ import Footer from "./components/UI/Footer.vue";
 import ResumeButton from "./components/BaseComponent/ResumeButton.vue";
 // import MobileFooter from "./components/UI/MobileFooter.vue";
 // Pages
-// import Home from "./views/Home.vue";
 import About from "./views/About.vue";
 import Projects from "./views/Projects.vue";
-// import ContactMe from "./views/ContactMe.vue";
 import Photography from "./views/Photography.vue";
+import Skills from "./views/Skills.vue";
 
 export default {
   name: "App",
@@ -113,6 +115,11 @@ export default {
       {
         name: "Home",
         href: "#about",
+        icon: "mdi-information-outline",
+      },
+      {
+        name: "Skills",
+        href: "#skills",
         icon: "mdi-information-outline",
       },
       {
@@ -157,7 +164,7 @@ export default {
     About,
     Footer,
     // Home,
-    // ContactMe,
+    Skills,
     Projects,
     ResumeButton,
     // MobileFooter,
