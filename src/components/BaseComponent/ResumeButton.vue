@@ -2,7 +2,7 @@
   <v-btn
     outlined
     color="button"
-    :href="resumeUrl"
+    @click="getMyResume"
     :block="block"
     class="text-capitalize rounded-xl"
   >
@@ -18,7 +18,11 @@ export default {
         "https://drive.google.com/file/d/19rnOZWjy4Y5icT7jbdAGaADzhl-L8nGq/view?usp=sharing",
     };
   },
-  methods: {},
+  methods: {
+    getMyResume() {
+      window.open(this.resumeUrl);
+    }
+  },
   computed: {},
   props: {
     block: {

@@ -1,13 +1,13 @@
 <template>
-  <v-container class="px-5" style="height: 720px" fill-height justify="center">
-    <!-- <div class="text-sm-h5 text--secondary">About me</div> -->
+  <v-container class="px-5" :style="'height: '+ screenHeight + 'px'" fill-height justify="center">
     <v-row align="center">
-      <!-- <v-col :cols="column"> -->
       <v-col xs="12" sm="12" md="12" lg="8" xl="8">
         <h3>Hi, I'm</h3>
-        <h1 class="primary--text">Peeranat Danaidusadeekul.</h1>
-        <h5 class="font-weight-regular">developer | photographer</h5>
-        <div class="mt-4">
+        <h1 class="primary--text" :style="isMobile ? '':'font-size:3rem'">Peeranat Danaidusadeekul.</h1>
+        <h5 class="font-weight-regular" :style="isMobile ? '':'font-size:1.25rem'">
+          <v-icon small class="mr-2">mdi-xml</v-icon>developer | <v-icon small class="mr-2">mdi-camera</v-icon>photographer
+        </h5>
+        <div class="mt-5">
           I'm a fourth year
           <strong class="suplimentary--text"
             >Industrial Engineering student</strong
@@ -28,23 +28,10 @@
             <v-icon>{{ social.icon }}</v-icon>
           </v-btn>
         </div>
-        <!-- <ResumeButton class="mt-3" :block="false" /> -->
-        <!-- <div class="text-sm-h5 mt-6 mb-4">Hard Skills</div>
-        <v-chip outlined v-for="skill in skills" :key="skill" class="mx-1 my-1">
-          {{ skill }}
-        </v-chip>
-        <div class="text-sm-h5 my-4">Soft Skills</div>
-        <v-chip
-          outlined
-          v-for="skill in hardSkills"
-          :key="skill"
-          class="mx-1 my-1"
-        >
-          {{ skill }}
-        </v-chip> -->
       </v-col>
-      <v-col xs="12" sm="12" md="12" lg="4" xl="4">
+      <v-col xs="12" sm="12" md="12" lg="4" xl="4" class="mx-auto">
         <MyPhoto :height="isMobile ? '400' : '450'" />
+         <ResumeButton class="mt-2 mx-auto" :block="true" v-if="isMobile" />
       </v-col>
     </v-row>
     <v-divider dark class="mt-5"></v-divider>
@@ -52,24 +39,13 @@
 </template>
 
 <script>
-// import ResumeButton from "@/components/BaseComponent/ResumeButton.vue";
+import ResumeButton from "@/components/BaseComponent/ResumeButton.vue";
 import MyPhoto from "@/components/Photo/MyPhoto";
 export default {
   data() {
     return {
-      skills: [
-        "HTML",
-        "JavaScript",
-        "CSS",
-        "VueJS",
-        "NuxtJS",
-        "NodeJS",
-        "SQL",
-        "Python",
-        "Git",
-        "Language (Thai: Native, English: Fluent)",
-      ],
-      hardSkills: ["Collaborative", "Communication", "Team working"],
+
+
       resumeUrl:
         "https://drive.google.com/file/d/1zaljVBAhkWv1Usiyb8wQop_dwjJshDST/view?usp=sharing",
       sns: [
@@ -121,10 +97,14 @@ export default {
         this.$vuetify.breakpoint.name === "md"
       );
     },
+    screenHeight() {
+      return this.isMobile ? 780 : screen.height - 250;
+    }
   },
   components: {
-    // ResumeButton,
+    ResumeButton,
     MyPhoto,
   },
+
 };
 </script>
