@@ -1,6 +1,6 @@
 <template>
   <v-container class="mt-2" justify="center">
-    <v-card color="gallery" elevation="0" class="rounded-lg pa-5">
+    <v-card elevation="0" class="rounded-lg pa-5 gallery">
       <h2 class="text--secondary font-weight-regular mb-5">Gallery</h2>
       <v-row justify="center">
         <v-col
@@ -13,7 +13,6 @@
           md="4"
           lg="4"
           xl="3"
-
         >
           <PhotoItem :src="address" />
         </v-col>

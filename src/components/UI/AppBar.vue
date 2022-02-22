@@ -1,68 +1,127 @@
 <template>
-  <v-app-bar hide-on-scroll class="blue-grey darken-4" app flat dark>
-    <div class="text-sm-h5 font-weight-bold" @click="scrollToTop">
-      NPRD<span style="color: rgb(121, 216, 121)">PHOTO</span>
-    </div>
-
-    <v-spacer></v-spacer>
-    <div v-if="!isMobile">
-      <a
-        class="mx-2"
-        v-for="link in navLinks"
-        :key="link.name"
-        :href="link.href"
-        >{{ link.name }}</a
+  <div>
+    <v-app-bar
+      app
+      hide-on-scroll
+      color="white"
+      flat
+      :extended="!isMobile"
+      class="pt-4 pb-4"
+      id="nav"
+    >
+      <h1
+        class="ml-6 font-weight-bold pointer navbar-title"
+        @click="smoothScrolling('#nav')"
+        v-if="!isMobile"
       >
-      <v-btn outlined class="mx-2 text-lowercase" color="hi" :href="resumeUrl">
-        <v-icon class="mr-2">mdi-google-drive</v-icon>Get my resume!
-      </v-btn>
-    </div>
+        <span class="primary--text">P</span>D
+      </h1>
 
-    <v-btn icon @click.stop="drawer = !drawer">
-      <v-icon>mdi-menu</v-icon>
-    </v-btn>
-    <v-navigation-drawer right v-model="drawer" app class="blue darken-5">
-      <v-list>
-        <v-list-item v-for="link in navLinks" :key="link.name">
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <div v-if="!isMobile">
+        <a
+          class="mx-3 mt-1"
+          v-for="link in navLinks"
+          :key="link.name"
+          @click="smoothScrolling(link.href)"
+          >{{ link.name }}</a
+        >
+      </div>
+      <v-spacer />
+      <ResumeButton v-if="!isMobile" class="mr-10" :block="false" />
+
+      <v-app-bar-nav-icon
+        v-if="isMobile"
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
+    </v-app-bar>
+    <v-navigation-drawer
+      v-if="isMobile"
+      color="chip"
+      right
+      v-model="drawer"
+      app
+      class="px-2"
+    >
+      <v-card
+        color="chip"
+        elevation="0"
+        class="ml-2"
+        @click="smoothScrolling('#about')"
+      >
+        <h2 class="mt-5 primary--text">PEERANAT</h2>
+        <p>developer | photographer</p>
+      </v-card>
+      <v-list color="chip" nav light>
+        <v-list-item
+          v-for="link in navLinks"
+          :key="link.name"
+          @click="smoothScrolling(link.href)"
+        >
           <v-list-item-action>
-            <v-icon class="white--text">{{ link.icon }}</v-icon>
+            <v-icon>{{ link.icon }}</v-icon>
           </v-list-item-action>
 
           <v-list-item-content>
-            <v-list-item-title class="white--text">
+            <v-list-item-title>
               {{ link.name }}
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <ResumeButton :block="true" />
     </v-navigation-drawer>
-  </v-app-bar>
+  </div>
 </template>
 
 <script>
+import ResumeButton from "../BaseComponent/ResumeButton.vue";
 export default {
   data() {
     return {
       drawer: false,
       navLinks: [
-        { name: "about me", href: "#about", icon: "mdi-information-outline" },
         {
-          name: "projects",
+          name: "Home",
+          href: "#about",
+          icon: "mdi-information-outline",
+        },
+        {
+          name: "Skills",
+          href: "#skills",
+          icon: "mdi-information-outline",
+        },
+        {
+          name: "Project",
           href: "#projects",
           icon: "mdi-file-document-outline",
         },
-        { name: "contact me", href: "#contact", icon: "mdi-phone-outline" },
+        {
+          name: "Photo",
+          href: "#photography",
+          icon: "mdi-image-multiple-outline",
+        },
+        {
+          name: "Contact me",
+          href: "#contact",
+          icon: "mdi-phone-outline",
+        },
       ],
       resumeUrl:
         "https://drive.google.com/file/d/1zaljVBAhkWv1Usiyb8wQop_dwjJshDST/view?usp=sharing",
     };
   },
   methods: {
-    scrollToTop() {
-      window.scrollTo(0, 0);
-    },
-    logFunc(name) {
-      console.log(name);
+    smoothScrolling(link) {
+      this.$vuetify.goTo(link, {
+        duration: 700,
+        offset: 0,
+        easing: "easeInOutCubic",
+      });
+      if (this.isMobile) {
+        this.drawer = !this.drawer;
+      }
     },
   },
   computed: {
@@ -74,6 +133,9 @@ export default {
       );
     },
   },
+  components: {
+    ResumeButton,
+  },
 };
 </script>
 
@@ -81,12 +143,16 @@ export default {
 a {
   text-decoration: none;
   outline: none;
-  color: white !important;
+  color: black !important;
+  transition: 0.3s;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 a:hover {
   text-decoration: none;
   outline: none;
-  color: #9cd779 !important;
+  color: #8ca988 !important;
 }
 </style>

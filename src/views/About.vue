@@ -1,11 +1,22 @@
 <template>
-  <v-container class="px-5" :style="'height: '+ screenHeight + 'px'" fill-height justify="center">
+  <v-container
+    class="px-5"
+    :style="'height: ' + screenHeight + 'px'"
+    fill-height
+    justify="center"
+  >
     <v-row align="center">
       <v-col xs="12" sm="12" md="12" lg="8" xl="8">
         <h3>Hi, I'm</h3>
-        <h1 class="primary--text" :style="isMobile ? '':'font-size:3rem'">Peeranat Danaidusadeekul.</h1>
-        <h5 class="font-weight-regular" :style="isMobile ? '':'font-size:1.25rem'">
-          <v-icon small class="mr-2">mdi-xml</v-icon>developer | <v-icon small class="mr-2">mdi-camera</v-icon>photographer
+        <h1 class="primary--text" :style="isMobile ? '' : 'font-size:3rem'">
+          Peeranat Danaidusadeekul.
+        </h1>
+        <h5
+          class="font-weight-regular"
+          :style="isMobile ? '' : 'font-size:1.25rem'"
+        >
+          <v-icon small class="mr-2">mdi-xml</v-icon>developer |
+          <v-icon small class="mr-2">mdi-camera</v-icon>photographer
         </h5>
         <div class="mt-5">
           I'm a fourth year
@@ -31,7 +42,7 @@
       </v-col>
       <v-col xs="12" sm="12" md="12" lg="4" xl="4" class="mx-auto">
         <MyPhoto :height="isMobile ? '400' : '450'" />
-         <ResumeButton class="mt-2 mx-auto" :block="true" v-if="isMobile" />
+        <ResumeButton class="mt-2 mx-auto" :block="true" v-if="isMobile" />
       </v-col>
     </v-row>
     <v-divider dark class="mt-5"></v-divider>
@@ -44,8 +55,6 @@ import MyPhoto from "@/components/Photo/MyPhoto";
 export default {
   data() {
     return {
-
-
       resumeUrl:
         "https://drive.google.com/file/d/1zaljVBAhkWv1Usiyb8wQop_dwjJshDST/view?usp=sharing",
       sns: [
@@ -99,12 +108,19 @@ export default {
     },
     screenHeight() {
       return this.isMobile ? 780 : screen.height - 250;
-    }
+    },
   },
   components: {
     ResumeButton,
     MyPhoto,
   },
-
 };
 </script>
+
+<style scoped>
+div {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+</style>
