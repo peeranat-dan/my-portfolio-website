@@ -1,79 +1,7 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      v-if="isMobile"
-      color="chip"
-      right
-      v-model="drawer"
-      app
-      class="px-2"
-    >
-      <v-card
-        color="chip"
-        elevation="0"
-        class="ml-2"
-        @click="smoothScrolling('#about')"
-      >
-        <h2 class="mt-5 primary--text">PEERANAT</h2>
-        <p>developer | photographer</p>
-      </v-card>
-      <v-list color="chip" nav light>
-        <v-list-item
-          v-for="link in navLinks"
-          :key="link.name"
-          @click="smoothScrolling(link.href)"
-        >
-          <v-list-item-action>
-            <v-icon>{{ link.icon }}</v-icon>
-          </v-list-item-action>
-
-          <v-list-item-content>
-            <v-list-item-title>
-              {{ link.name }}
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-      <ResumeButton :block="true" />
-    </v-navigation-drawer>
-    <v-app-bar
-      app
-      hide-on-scroll
-      color="white"
-      flat
-      :extended="!isMobile"
-      class="pt-4 pb-4"
-      id="nav"
-    >
-      <h1
-        class="ml-3 font-weight-bold pointer"
-        @click="smoothScrolling('#nav')"
-        v-if="!isMobile"
-      >
-        <span class="primary--text">Peeranat</span> Danaidusadeekul
-      </h1>
-
-      <v-spacer></v-spacer>
-      <div v-if="!isMobile" class="mt-2">
-        <a
-          class="mx-3"
-          v-for="link in navLinks"
-          :key="link.name"
-          @click="smoothScrolling(link.href)"
-          >{{ link.name }}</a
-        >
-        <ResumeButton class="ml-10 mr-12" :block="false" />
-      </div>
-
-      <v-app-bar-nav-icon
-        v-else
-        @click.stop="drawer = !drawer"
-      ></v-app-bar-nav-icon>
-    </v-app-bar>
+    <AppBar />
     <v-main>
-      <!-- <section id="home">
-        <Home />
-      </section> -->
       <section id="about">
         <About />
       </section>
@@ -83,24 +11,18 @@
       <section id="projects">
         <Projects />
       </section>
-      <!-- <section id="contact" v-if="isMobile">
-        <ContactMe />
-      </section> -->
       <section id="photography" class="gallery">
         <Photography />
       </section>
     </v-main>
     <Footer id="contact" />
-    <!-- <MobileFooter v-if="isMobile" /> -->
   </v-app>
 </template>
 
 <script>
 // UI Components
-// import AppBar from "./components/UI/AppBar.vue";
+import AppBar from "./components/UI/AppBar.vue";
 import Footer from "./components/UI/Footer.vue";
-import ResumeButton from "./components/BaseComponent/ResumeButton.vue";
-// import MobileFooter from "./components/UI/MobileFooter.vue";
 // Pages
 import About from "./views/About.vue";
 import Projects from "./views/Projects.vue";
@@ -161,13 +83,11 @@ export default {
     },
   },
   components: {
-    About,
+    AppBar,
     Footer,
-    // Home,
+    About,
     Skills,
     Projects,
-    ResumeButton,
-    // MobileFooter,
     Photography,
   },
 };
@@ -185,14 +105,13 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
-a:hover {
-  text-decoration: none;
-  outline: none;
-  color: #8ca988 !important;
-}
-
 .pointer {
   cursor: pointer;
+}
+
+::selection {
+  background: #45634a;
+  color: white;
 }
 </style>
 
@@ -201,11 +120,21 @@ a {
   text-decoration: none;
   outline: none;
   color: black !important;
+  transition: 0.3s;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 a:hover {
   text-decoration: none;
   outline: none;
   color: #8ca988 !important;
+}
+
+.navbar-title {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 </style>

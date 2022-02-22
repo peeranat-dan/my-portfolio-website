@@ -21,7 +21,7 @@ export default {
   methods: {
     getMyResume() {
       window.open(this.resumeUrl);
-    }
+    },
   },
   computed: {},
   props: {

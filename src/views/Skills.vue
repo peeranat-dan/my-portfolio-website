@@ -1,16 +1,17 @@
 <template>
-  <v-container justify="center">
+  <v-container justify="center" class="py-12">
     <h2 class="text--secondary font-weight-regular mb-5">Skills</h2>
     <h3 class="mt-6 mb-4 primary--text">Hard Skills</h3>
     <div v-if="isMobile">
-    <v-chip
-      outlined
-      color="primary"
-      v-for="skill in hardSkills"
-      :key="skill.name"
-      class="mx-1 my-1">
-      {{ skill.name }}
-    </v-chip>
+      <v-chip
+        outlined
+        color="primary"
+        v-for="skill in hardSkills"
+        :key="skill.name"
+        class="mx-1 my-1"
+      >
+        {{ skill.name }}
+      </v-chip>
     </div>
     <div v-if="!isMobile">
       <v-row justify="center">
@@ -20,7 +21,7 @@
           class="d-flex child-flex"
           cols="4"
         >
-          <SkillCard :skill="skill"/>
+          <SkillCard :skill="skill" />
         </v-col>
       </v-row>
     </div>
@@ -43,7 +44,8 @@
 "
       v-for="interest in otherInterests"
       :key="interest"
-      class="mx-1 my-1">
+      class="mx-1 my-1"
+    >
       {{ interest }}
     </v-chip>
   </v-container>
@@ -55,15 +57,32 @@ export default {
   data() {
     return {
       hardSkills: [
-        { name: "HTML+JS+CSS", icon: "mdi-web", description: "Intermediate level"},
-        { name: "VueJS + NuxtJS", icon: "mdi-vuejs", description: "Intermediate level"},
-        { name: "ReactJS", icon: "mdi-react", description: "Being Developed"},
-        { name: "NodeJS", icon: "mdi-nodejs", description: "Intermediate level"},
-        { name: "Git", icon: "mdi-git", description: "Basic Level"},
-        { name: "English", icon: "mdi-translate", description: "Fluent level"},
+        {
+          name: "HTML+JS+CSS",
+          icon: "mdi-web",
+          description: "Intermediate level",
+        },
+        {
+          name: "VueJS + NuxtJS",
+          icon: "mdi-vuejs",
+          description: "Intermediate level",
+        },
+        { name: "ReactJS", icon: "mdi-react", description: "Being Developed" },
+        {
+          name: "NodeJS",
+          icon: "mdi-nodejs",
+          description: "Intermediate level",
+        },
+        { name: "Git", icon: "mdi-git", description: "Basic Level" },
+        { name: "English", icon: "mdi-translate", description: "Fluent level" },
       ],
-      softSkills: ["Collaborative", "Communication", "Team working", "Flexibility"],
-      otherInterests: ["Games", "Photography", "Thai-Pop music"]
+      softSkills: [
+        "Collaborative",
+        "Communication",
+        "Team working",
+        "Flexibility",
+      ],
+      otherInterests: ["Games", "Photography", "Thai-Pop music"],
     };
   },
   methods: {},
@@ -77,12 +96,9 @@ export default {
     },
   },
   components: {
-    SkillCard
-  }
+    SkillCard,
+  },
 };
-
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
