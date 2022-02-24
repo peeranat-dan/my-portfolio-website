@@ -1,38 +1,51 @@
 <template>
-  <v-card
-    class="project-card rounded-xl"
-    height="250"
-    elevation="2"
-    :light="!project.dark"
-  >
-    <v-card-title class="white--text text-h5">
-      {{ project.name }}
-    </v-card-title>
-    <v-card-text class="chip--text">
-      {{ project.description }}
-    </v-card-text>
-    <div class="ml-3">
-      <v-chip
-        class="mx-1 mb-1"
-        color="#FFFBCE"
-        outlined
-        v-for="tag in project.tags"
-        :key="tag"
-        >{{ tag }}</v-chip
-      >
-    </div>
-    <v-card-text class="chip--text" v-if="project.channel">
-      Visit
-      <v-icon class="mx-1 mb-1" color="chip">{{ project.icon }}</v-icon>
-      <a @click="openNewTab(project.url)">
-        <strong>{{ project.channel }}</strong>
-      </a>
-      <v-icon class="ml-2" x-small color="chip">mdi-open-in-new</v-icon>
-    </v-card-text>
-    <v-card-text class="chip--text" v-else>
-      * No project repository due to confidential *
-    </v-card-text>
-  </v-card>
+  <v-hover v-slot="{ hover }">
+    <v-card
+      class="project-card rounded-xl"
+      height="250"
+      elevation="2"
+      :light="!project.dark"
+    >
+      <v-expand-transition>
+        <div
+          v-if="hover && !!project.url"
+          class="d-flex transition-fast-in-fast-out project-card-hover v-card--reveal justify-center align-center rounded-xl white--text"
+          style="height: 100%;"
+          @click="openNewTab(project.url)"
+        >
+          <p>Visit <v-icon color="white" class="mx-1">{{project.icon}}</v-icon> {{ project.channel}}</p>
+
+        </div>
+        <div
+          v-if="hover && !project.url"
+          class="d-flex transition-fast-in-fast-out project-card-hover-no-url v-card--reveal justify-center align-center rounded-xl white--text"
+          style="height: 100%;"
+
+        >
+          <p>* No project repository due to confidential *</p>
+
+        </div>
+      </v-expand-transition>
+      <div v-if="!hover">
+      <v-card-title class="white--text text-h5">
+        {{ project.name }}
+      </v-card-title>
+      <v-card-text class="chip--text">
+        {{ project.description }}
+      </v-card-text>
+      <div class="ml-3">
+        <v-chip
+          class="mx-1 mb-1"
+          color="#FFFBCE"
+          outlined
+          v-for="tag in project.tags"
+          :key="tag"
+          >{{ tag }}</v-chip
+        >
+      </div>
+      </div>
+    </v-card>
+  </v-hover>
 </template>
 
 <script>
@@ -52,6 +65,9 @@ export default {
       required: true,
     },
   },
+  mounted() {
+
+  }
 };
 </script>
 
@@ -77,5 +93,14 @@ a:hover {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+}
+
+.project-card-hover{
+  background-image: linear-gradient(to right top, #565a7a, #626687, #6f7394, #7b7fa1, #888caf);
+  cursor: pointer;
+}
+
+.project-card-hover-no-url {
+  background-image: linear-gradient(to right bottom, #8d4745, #9b5351, #a9605c, #b86c69, #c67975);
 }
 </style>
