@@ -2,14 +2,15 @@
   <v-hover v-slot="{ hover }">
     <v-card
       class="project-card rounded-xl"
-      height="250"
+      :class="isMobile ? 'py-4' : ''"
+      :height="isMobile ? '' : '250'"
       elevation="2"
       :light="!project.dark"
     >
       <v-expand-transition>
         <div
           v-if="hover && !!project.url && !isMobile"
-          class="d-flex transition-fast-in-fast-out project-card-hover v-card--reveal justify-center align-center rounded-xl white--text"
+          class="d-flex transition-fast-in-fast-out project-card-hover justify-center align-center rounded-xl white--text"
           style="height: 100%"
           @click="openNewTab(project.url)"
         >
@@ -50,7 +51,7 @@
           * No project repo
         </p>
         <v-btn
-          class="ml-2 mt-5 rounded-xl chip primary--text"
+          class="ml-2 rounded-xl chip primary--text"
           elevation="12"
           @click="openNewTab(project.url)"
           small
