@@ -28,7 +28,7 @@
           <p>* No project repository due to confidential *</p>
         </div>
       </v-expand-transition>
-      <div v-if="!hover">
+      <div v-if="!hover || isMobile">
         <v-card-title class="white--text text-h5">
           {{ project.name }}
         </v-card-title>
