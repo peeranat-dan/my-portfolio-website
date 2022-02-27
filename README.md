@@ -2,7 +2,7 @@
 
 ### Site URL
 
-<https://peeranatdan-portfolio.netlify.app/>
+<https://peeranatdanaidusadeekul.live/>
 
 
 ## Project setup
@@ -24,6 +24,3 @@ yarn build
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
