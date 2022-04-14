@@ -52,14 +52,14 @@ export default {
             "Built own webpage to show my front-end developer skill and my personality.",
         },
         {
-          name: "Pomo-Pomo (In-Dev)",
+          name: "PomoPomo (In-Dev)",
           color: "#244b5c",
           dark: false,
           channel: "Github",
           icon: "mdi-github",
-          url: "https://github.com/peeranat-dan/pomo-pomo",
-          tags: ["Vue 3", "Vite", "Supabase", "TailwindCSS"],
-          description: "A pomodoro timer developed with Vue 3 + Vite + Pinia.",
+          url: "https://github.com/peeranat-dan/pomopomo",
+          tags: ["ReactJS", "Vite", "Supabase", "TailwindCSS"],
+          description: "A pomodoro timer developed with ReactJS + Vite.",
         },
       ],
     };
