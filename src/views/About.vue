@@ -19,12 +19,11 @@
           <v-icon small class="mr-2">mdi-camera</v-icon>photographer
         </h5>
         <div class="mt-5">
-          I'm a fourth year
+          I'm a
           <strong class="suplimentary--text"
-            >Industrial Engineering student</strong
+            >graduated Industrial Engineering student</strong
           >
-          at Chulalongkorn University who currently seeking for more challenging
-          job opportunities in field of
+          from Chulalongkorn University. I'm interested in field of
           <strong class="suplimentary--text"
             >front-end and back-end developer</strong
           >.

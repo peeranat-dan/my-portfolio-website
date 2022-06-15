@@ -98,18 +98,11 @@ export default {
           icon: "mdi-file-document-outline",
         },
         {
-          name: "Photo",
-          href: "#photography",
-          icon: "mdi-image-multiple-outline",
-        },
-        {
           name: "Contact me",
           href: "#contact",
           icon: "mdi-phone-outline",
         },
       ],
-      resumeUrl:
-        "https://drive.google.com/file/d/1zaljVBAhkWv1Usiyb8wQop_dwjJshDST/view?usp=sharing",
     };
   },
   methods: {

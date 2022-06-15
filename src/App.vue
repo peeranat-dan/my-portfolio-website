@@ -11,9 +11,6 @@
       <section id="projects">
         <Projects />
       </section>
-      <section id="photography" class="gallery">
-        <Photography />
-      </section>
     </v-main>
     <Footer id="contact" />
   </v-app>
@@ -26,7 +23,6 @@ import Footer from "./components/UI/Footer.vue";
 // Pages
 import About from "./views/About.vue";
 import Projects from "./views/Projects.vue";
-import Photography from "./views/Photography.vue";
 import Skills from "./views/Skills.vue";
 
 export default {
@@ -48,11 +44,6 @@ export default {
         name: "Project",
         href: "#projects",
         icon: "mdi-file-document-outline",
-      },
-      {
-        name: "Photo",
-        href: "#photography",
-        icon: "mdi-image-multiple-outline",
       },
       {
         name: "Contact me",
@@ -88,7 +79,6 @@ export default {
     About,
     Skills,
     Projects,
-    Photography,
   },
 };
 </script>
