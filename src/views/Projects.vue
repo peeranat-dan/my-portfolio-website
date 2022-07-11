@@ -67,8 +67,8 @@ export default {
           dark: false,
           channel: "Github",
           icon: "mdi-github",
-          url: "https://github.com/peeranat-dan/nprdphoto",
-          tags: ["ReactJS", "Vite", "TailwindCSS"],
+          url: "https://github.com/peeranat-dan/nprdphoto-profile",
+          tags: ["React", "Typescript", "Vite", "Mantine"],
           description:
             "A webpage developed to exhibit my photos and show my available dates in order to hire me as a photographer.",
         },
