@@ -13,7 +13,7 @@ const vuetify = new Vuetify({
         secondary: "#b0bec5",
         anchor: "#8c9eff",
         background: "#000",
-        button: "8CA988",
+        button: "5F937A",
         hi: "#9cd779",
         nav: "#1B272D",
         suplimentary: "#894A47",
