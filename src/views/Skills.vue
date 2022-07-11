@@ -58,7 +58,7 @@ export default {
     return {
       hardSkills: [
         {
-          name: "HTML+JS+CSS",
+          name: "HTML+JS",
           icon: "mdi-web",
           description: "Intermediate level",
         },
@@ -67,11 +67,27 @@ export default {
           icon: "mdi-vuejs",
           description: "Intermediate level",
         },
-        { name: "ReactJS", icon: "mdi-react", description: "Being Developed" },
+        { name: "ReactJS", icon: "mdi-react", description: "Basic Level" },
         {
           name: "NodeJS",
           icon: "mdi-nodejs",
           description: "Intermediate level",
+        },
+
+        {
+          name: "GraphQL",
+          icon: "mdi-graphql",
+          description: "Being developed",
+        },
+        {
+          name: "TypeScript",
+          icon: "mdi-language-typescript",
+          description: "Being developed",
+        },
+        {
+          name: "Python",
+          icon: "mdi-language-python",
+          description: "Basic Level",
         },
         { name: "Git", icon: "mdi-git", description: "Basic Level" },
         { name: "English", icon: "mdi-translate", description: "Fluent level" },
